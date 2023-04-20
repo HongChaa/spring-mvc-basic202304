@@ -59,21 +59,18 @@
 
     <div class="wrap">
         <section class="score-main">
-            <h1>${s.name}님 성적 정보</h1>
-            <ul>
-                <li># 국어: ${s.kor}점</li>
-                <li># 영어: ${s.eng}점</li>
-                <li># 수학: ${s.math}점</li>
-                <li># 총점: ${s.total}점</li>
-                <li># 평균: ${s.average}점</li>
-                <li># 학점: ${s.grade}</li>
-            </ul>
-            <div class="btn-group">
-                <a class="list-btn" href="/score/list">목록</a>
-            </div>
-            <div class="btn-group">
-                <a class="list-btn" href="/score/modify?stuNum=${s.stuNum}">수정</a>
-            </div>
+            <h1>${s.name}님 성적 정보 수정하기~</h1>
+            <form action="/score/modify" method="post">
+                <input type="hidden" name="stuNum" value="${s.stuNum}">
+                <ul>
+                    <li># 국어: <input type="text" name="kor" value="${s.kor}"></li>
+                    <li># 영어: <input type="text" name="eng" value="${s.eng}"></li>
+                    <li># 수학: <input type="text" name="math" value="${s.math}"></li>
+                </ul>
+                <div class="btn-group">
+                    <button type="submit">수정완료</button>
+                </div>
+            </form>
         </section>
 
     </div>

@@ -102,5 +102,27 @@ public class ScoreController {
         model.addAttribute("s", score);
         return "chap04/score-detail";
     }
+    // 5. 정보 수정 요청
+    @GetMapping("/modify")
+    public String modify(int stuNum, Model model) {
+
+        Score score = repository.findByStuNum(stuNum);
+        model.addAttribute("s", score);
+        return "chap04/score-modify";
+    }
+    @PostMapping("/modify")
+    public String modify(int stuNum, int kor, int eng, int math, Model model) {
+
+        Score score = repository.findByStuNum(stuNum);
+        score.setKor(kor);
+        score.setEng(eng);
+        score.setMath(math);
+        score.calcTotalAndAvg();
+        score.calcGrade();
+
+        model.addAttribute("s", score);
+        return "redirect:/score/detail?stuNum=" + stuNum;
+    }
+
 
 }
