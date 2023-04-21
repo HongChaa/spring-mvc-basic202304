@@ -25,18 +25,15 @@
         label {
             display: block;
         }
-
         .score-list>li {
             margin-bottom: 10px;
         }
-
         .score-list>li:first-child {
             font-size: 1.2em;
             color: blue;
             font-weight: 700;
             border-bottom: 1px solid skyblue;
         }
-
         .del-btn {
             width: 10px;
             height: 10px;
@@ -48,30 +45,24 @@
             font-size: 0.7em;
             padding: 6px;
         }
-
         .del-btn:hover {
             background: orangered;
         }
-
         section.score {
             padding: 200px 50px 100px;
             font-size: 1.5em;
         }
-
         .list-header {
             display: flex;
             justify-content: space-between;
-
             width: 50%;
         }
         .list-header .sort-link-group {
             display: flex;
-
         }
         .list-header .sort-link-group div {
             margin-right: 20px;
         }
-
     </style>
 </head>
 
@@ -115,9 +106,8 @@
 
                 <c:forEach var="s" items="${sList}">
                     <li>
-                        # 학번: ${s.stuNum}, 이름: <a href="/score/detail?stuNum=${s.stuNum}">${s.name}</a>, 
-                        국어: ${s.kor}점, 영어: ${s.eng}점, 수학: ${s.math}점, 
-                        총점: ${s.total}점, 평균: ${s.average}점, 학점: ${s.grade}
+                        # 학번: ${s.stuNum}, 이름: <a href="/score/detail?stuNum=${s.stuNum}">${s.maskingName}</a>, 
+                        평균: ${s.average}점, 학점: ${s.grade}
                         <a class="del-btn" href="/score/remove?stuNum=${s.stuNum}">삭제</a>
                     </li>
                 </c:forEach>
@@ -132,13 +122,10 @@
 
     <script>
         const $ul = document.querySelector('.score-list');
-
         $ul.addEventListener('click', e => {
             if (!e.target.matches('a.del-btn')) return;
-
             e.preventDefault(); // a태그 기본기능 정지
             //console.log('클릭이벤트 발동!');
-
             if (confirm('정말로 삭제하시겠습니까?')) {
                 //삭제 진행
                 window.location.href = e.target.getAttribute('href');
@@ -147,7 +134,6 @@
                 return;
             }
         });
-
         //홈화면으로 버튼 이벤트
         const $homeBtn = document.getElementById('go-home');
         $homeBtn.onclick = e => {

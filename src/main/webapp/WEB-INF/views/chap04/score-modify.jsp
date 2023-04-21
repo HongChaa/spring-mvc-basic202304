@@ -23,13 +23,16 @@
 
 
     <style>
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+        }
         li {
             list-style: none;
             margin: 0;
             padding: 0;
             font-size: 1.4em;
         }
-
         section.score-main {
             width: 30%;
             margin: 0 auto 150px;
@@ -39,7 +42,6 @@
             box-shadow: 2px 2px 5px orangered;
             transform: translateY(200px);
         }
-
         a.list-btn {
             display: block;
             width: fit-content;
@@ -69,6 +71,7 @@
                 </ul>
                 <div class="btn-group">
                     <button type="submit">수정완료</button>
+                    <button type="button" onclick="history.back()">이전으로</button>
                 </div>
             </form>
         </section>
