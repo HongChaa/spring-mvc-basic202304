@@ -58,4 +58,11 @@ public class ScoreService {
         // 몇개만 추리고 전후처리해줘
         return scoreRepository.findByStuNum(stuNum);
     }
+
+    // 성적 업데이트 처리
+    public int update(Score score) {
+
+        return scoreRepository.updateScore(score);
+    }
+
 }
