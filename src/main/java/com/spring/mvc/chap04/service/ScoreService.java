@@ -3,8 +3,11 @@ package com.spring.mvc.chap04.service;
 import com.spring.mvc.chap04.dto.ScoreListResponseDTO;
 import com.spring.mvc.chap04.dto.ScoreRequestDTO;
 import com.spring.mvc.chap04.entity.Score;
+import com.spring.mvc.chap04.repository.ScoreMapper;
 import com.spring.mvc.chap04.repository.ScoreRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,11 +15,17 @@ import java.util.stream.Collectors;
 
 // 컨트롤러와 레파지토리 사이 비즈니스 로직 처리
 // ex) 트랜잭션 처리, 예외처리, dto변환처리
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @Service
 public class ScoreService {
 
-    private final ScoreRepository scoreRepository;
+    //    private final ScoreRepository scoreRepository;
+    private final ScoreMapper scoreRepository;
+
+    @Autowired
+    public ScoreService(/*@Qualifier("spring") */ScoreMapper scoreRepository) {
+        this.scoreRepository = scoreRepository;
+    }
 
     // 목록조회 중간처리
     /*

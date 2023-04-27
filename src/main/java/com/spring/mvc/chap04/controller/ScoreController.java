@@ -135,7 +135,7 @@ public class ScoreController {
 
         Score score = scoreService.retrieve(stuNum);
         score.changeScore(dto);
-        scoreService.update(score);
+//        scoreService.update(score);
 
         return "redirect:/score/detail?stuNum=" + stuNum; // 상세보기페이지로 리다이렉트
     }
