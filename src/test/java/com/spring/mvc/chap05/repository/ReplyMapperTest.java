@@ -49,6 +49,18 @@ class ReplyMapperTest {
 //
 //    }
 
+    @Test
+    void bulkReplyInsert() {
+        for (int i = 0; i < 300; i++) {
+        Reply reply = Reply.builder()
+                .replyText("페이지댓글내용" + i)
+                .replyWriter("망둥어")
+                .boardNo(2L)
+                .build();
+            replyMapper.save(reply);
+        }
+    }
+
 
     @Test
     @DisplayName("댓글을 3번 게시물에 등록하면 " +
